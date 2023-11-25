@@ -10,6 +10,6 @@ A fun project which ranks different classes @ Cupertino High School!
 
 ## How it Works
 
-This project utilizes Flask + HTML.
+This project utilizes Flask + HTML. <br>
 _This example uses the Web Server Gateway Interface (WSGI) with Flask to enable handling requests on Vercel with Serverless Functions._
 
