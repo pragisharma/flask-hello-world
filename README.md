@@ -1,6 +1,10 @@
 # Tino Class Rank 
 
-This is linked with a Vercel domain; resource: [https://flask3-python-template.vercel.app/]
+This is linked with a Vercel domain:
+
+<ul>
+  <li> https://flask3-python-template.vercel.app/ </li>
+</ul>
 
 A fun project which ranks different classes @ Cupertino High School!
 
