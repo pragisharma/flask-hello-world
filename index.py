@@ -3,7 +3,7 @@ import json
 import os
 import sqlite3
 
-# other libraries~~
+# # other libraries~~
 from flask import Flask, redirect, request, url_for
 from flask_login import (
     LoginManager,
@@ -40,12 +40,15 @@ try:
     init_db_command()
 except sqlite3.OperationalError:
     # Assume it's already been created
+    print("db already created")
     pass
 
 # oauth 2 client setup T-T 
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
 # Flask-Login helper which gets info from user from our db!!
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.get(user_id)
@@ -67,6 +70,7 @@ def index():
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json()
 ## could implement error handling here in case google fails us (or the user) ;-;
+
 
 @app.route("/login")
 def login():
@@ -148,7 +152,7 @@ def logout():
 
 if __name__ == "__main__":
     app.run(ssl_context="adhoc")
-    
+   
     
 # done done! code ends here... 
 
@@ -160,3 +164,7 @@ if __name__ == "__main__":
 # @app.route('/about')
 # def about():
 #     return 'About'
+
+##############
+# export FLASK_APP=index.py
+# python3 -m flask run
