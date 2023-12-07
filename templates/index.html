@@ -1,0 +1,51 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h1>Tino Class Rankings</h1>
+
+    {% for class in classes %} 
+      <div>
+        <h3>
+          {{ class.class_name }}
+          <span style="font-size:1rem;">{{ class.id }}</span>
+        </h3>
+        <p>{{ class.description }}</p>
+        <p>
+          rating: {{ class.rating }}
+          <span style="font-size:0.5rem;">(avg. of {{ class.numOfRatings }})</span>
+        </p>
+
+        <div>
+          <input id="input-{{ class.id }}" type="number" min="1" max="5" placeholder="rating" value="4">
+          
+          </input>
+          <button id="{{ class.id }}" class="rate-btn">rate</button>
+        </div>
+      </div>
+      <hr>
+    {% endfor %}
+    
+    <script>
+      for (const btn of document.getElementsByClassName('rate-btn')) {
+        btn.onclick = function (e) {
+          const class_id = btn.id;
+          const rating = parseInt(document.getElementById(`input-${class_id}`).value);
+
+          fetch('/addrating', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              class_id,
+              rating
+            })
+          })
+            .then(res => console.log(res));
+        }
+      }
+    </script>
+  </body>
+</html>
