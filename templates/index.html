@@ -1,31 +1,36 @@
 <html>
   <head>
-
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='app.css') }}">
   </head>
-  <body>
-    <h1>Tino Class Rankings</h1>
+  <body class="p-8">
+    <h1 class="text-3xl font-bold tracking-wide my-4">Tino Class Rankings</h1>
+    <hr class="my-2">
 
-    {% for class in classes %} 
-      <div>
-        <h3>
-          {{ class.class_name }}
-          <span style="font-size:1rem;">{{ class.id }}</span>
-        </h3>
-        <p>{{ class.description }}</p>
-        <p>
-          rating: {{ class.rating }}
-          <span style="font-size:0.5rem;">(avg. of {{ class.numOfRatings }})</span>
-        </p>
+    <div class="px-2">
+      {% for class in classes %} 
+        <div class="m-3">
+          <h3 class="text-2xl font-medium my-2">
+            {{ class.class_name }}
+            <span class="text-md font-normal">{{ class.id }}</span>
+          </h3>
+          <div class="mx-2">
+            <p>{{ class.description }}</p>
+            <p>
+              <i>rating</i>: {{ class.rating }}
+              <span class="text-sm">(avg. of {{ class.numOfRatings }})</span>
+            </p>
 
-        <div>
-          <input id="input-{{ class.id }}" type="number" min="1" max="5" placeholder="rating" value="4">
-          
-          </input>
-          <button id="{{ class.id }}" class="rate-btn">rate</button>
+            <div class="my-2">
+              <input id="input-{{ class.id }}" type="number" min="1" max="5" placeholder="rating" value="4"
+                class="px-2 border rounded-md">
+              </input>
+              <button id="{{ class.id }}" class="rate-btn bg-stone-300 text-stone-900 rounded-md mx-3 px-3">rate</button>
+            </div>
+          </div>
         </div>
-      </div>
-      <hr>
-    {% endfor %}
+        <hr>
+      {% endfor %}
+    </div>
     
     <script>
       for (const btn of document.getElementsByClassName('rate-btn')) {
