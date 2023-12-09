@@ -14,3 +14,4 @@ venv.bak/
 
 # db
 sqlite_db
+node_modules
