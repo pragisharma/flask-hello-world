@@ -47,15 +47,19 @@ def add_rating():
    if classroom == None:
        return f"None such class '{class_id}'", 400
    num_current_ratings = classroom.numOfRatings
+   # sum of total ratings 
+   num_total_ratings = classroom.rating + rating
+    
+
+   classroom.numOfRatings +=1 ## increment total first so rating is accurate 
    
-   # have some variable new_rating that contains the updated rating
-   # update classroom.rating = new_rating
-   # increment numOfRatings
-   
-   classroom.rating = (rating + classroom.rating) / num_current_ratings
-   classroom.numOfRatings += 1;
+   # the real rating to be displayed to user!!
+   actualRating = (num_total_ratings) / num_current_ratings
    
    db.session.add(classroom)
    db.session.commit()
    return "done", 200
 
+
+## running flask app thingy 
+# export FLASK_APP=app
