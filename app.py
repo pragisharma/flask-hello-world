@@ -30,10 +30,14 @@ def test():
 @app.route('/')
 def index():
     classes = Classroom.query.all()
-    for classroom in classes:
-        classroom.rating /= classroom.numOfRatings
-
     print(classes)
+    for classroom in classes:
+        if classroom.numOfRatings is 0:
+            classroom.rating = 0
+        else:
+            classroom.rating /= classroom.numOfRatings
+        classroom.rating = round(classroom.rating, 2)
+
     return render_template('./index.html', classes=classes)
 
 
@@ -50,6 +54,7 @@ def add_rating():
    if classroom == None:
        return f"None such class '{class_id}'", 400
    classroom.rating += rating
+   classroom.ratingSum += rating
    classroom.numOfRatings += 1;
    
    db.session.add(classroom)
