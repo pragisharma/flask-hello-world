@@ -16,7 +16,7 @@ class Classroom(db.Model):
    id=db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
    class_name = db.Column(db.String(100), nullable=False)
    description = db.Column(db.String(1000), unique=True, nullable=False)
-   sumOfRating = db.Column(db.Integer)
+   rating = db.Column(db.Integer)
    numOfRatings = db.Column(db.Integer)
 
    # teacher name 
@@ -50,7 +50,7 @@ def add_rating():
    # number of people who have rated 
    num_current_ratings = classroom.numOfRatings
    # sum of total ratings 
-   num_total_ratings = classroom.sumOfRatings + rating
+   num_total_ratings = classroom.rating + rating
     
 
    classroom.numOfRatings +=1 ## increment total first so rating is accurate 
@@ -63,3 +63,19 @@ def add_rating():
    
    return "done", 200
 
+# . .venv/bin/activate
+
+### backend business 
+
+## terminal flask shell cmds
+## source /Users/pragya/Desktop/tino-class-rank/.venv/bin/activate
+# source config.env 
+# from app import db, Classroom
+# class1=Classroom(class_name="APP1",description="taught by steemers",rating=5)
+# class5=Classroom(class_name="World Literature",description="taught by avvakumovits, phelps, & chen",rating=3,numOfRatings=12)
+# db.session.add(class1)
+# db.session.commit()
+# Classroom.query.all()
+
+## running flask app thingy 
+# export FLASK_APP=app
