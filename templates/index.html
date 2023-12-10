@@ -2,33 +2,33 @@
   <head>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='app.css') }}">
   </head>
-  <body class="p-8">
+  <body class="p-8 bg-stone-200">
     <h1 class="text-3xl font-bold tracking-wide my-4">Tino Class Rankings</h1>
     <hr class="my-2">
 
-    <div class="px-2">
+    <div class="pl-2 gap-8 flex flex-row flex-wrap">
       {% for class in classes %} 
-        <div class="m-3">
-          <h3 class="text-2xl font-medium my-2">
-            {{ class.class_name }}
-            <span class="text-md font-normal">{{ class.id }}</span>
-          </h3>
-          <div class="mx-2">
+        <div class="p-6 bg-white rounded-xl drop-shadow-2xl min-w-[16rem] w-[25%] h-96
+          flex flex-col">
+          <h3 class="my-2 text-2xl font-bold tracking-wide my-2">{{ class.class_name }}</h3>
+
+          <!-- body -->
+          <div class="flex-grow">
             <p>{{ class.description }}</p>
             <p>
               <i>rating</i>: {{ class.rating }}
               <span class="text-sm">(avg. of {{ class.numOfRatings }})</span>
             </p>
+          </div>
 
-            <div class="my-2">
-              <input id="input-{{ class.id }}" type="number" min="1" max="5" placeholder="rating" value="4"
-                class="px-2 border rounded-md">
-              </input>
-              <button id="{{ class.id }}" class="rate-btn bg-stone-300 text-stone-900 rounded-md mx-3 px-3">rate</button>
-            </div>
+          <!-- footer (rating) -->
+          <div class="my-2">
+            <input id="input-{{ class.id }}" type="number" min="1" max="5" placeholder="rating" value="4"
+              class="px-2 border rounded-md">
+            </input>
+            <button id="{{ class.id }}" class="rate-btn bg-stone-300 text-stone-900 rounded-md mx-3 px-3">rate</button>
           </div>
         </div>
-        <hr>
       {% endfor %}
     </div>
     
