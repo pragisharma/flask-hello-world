@@ -33,6 +33,16 @@ def index():
     print(classes)
     return render_template('./index.html', classes=classes)
 
+@app.route('/aboutme/')
+def aboutme():
+    classes = Classroom.query.all()
+    return render_template('./aboutme.html', classes=classes)
+
+@app.route('/contactus/')
+def contactus():
+    classes = Classroom.query.all()
+    return render_template('./contactus.html', classes=classes)
+
 
 @app.route('/addrating', methods=['POST'])
 def add_rating():

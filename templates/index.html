@@ -3,6 +3,18 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='app.css') }}">
   </head>
   <body class="p-8 bg-stone-200">
+    <ul class="flex text-2xl font-bold">
+      <li class="mr-6">
+        <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('index') }}">Home</a>
+      </li>
+      <li class="mr-6">
+        <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('aboutme') }}">About Me</a>
+      </li>
+      <li class="mr-6">
+        <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('contactus') }}">Contact Us</a>
+      </li>
+      
+    </ul>
     <h1 class="text-3xl font-bold tracking-wide my-4">Tino Class Rankings</h1>
     <hr class="my-2">
 

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='app.css') }}">
+  </head>
+  <body class="p-8 bg-stone-200">
+    <ul class="flex text-2xl font-bold">
+        <li class="mr-6">
+          <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li class="mr-6">
+          <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('aboutme') }}">About Me</a>
+        </li>
+        <li class="mr-6">
+          <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('contactus') }}">Contact Us</a>
+        </li>
+        
+      </ul>
+    <h1 class="text-3xl font-bold tracking-wide my-4">Contact Us</h1>
+    <hr class="my-2">
+
+    <div class="text-2xl">
+      If you have any suggestions or anything to tell us, feel free to contact us at:<br><br>
+      <ul>
+        <li>Discord: _kavya_</li>
+        <li>Discord: pragi</li>
+        <li>Email: imkavyagupta@gmail.com</li>
+        <li>Email: emailpragyasharma@gmail.com</li>
+      </ul>
+    </div>
+  </body>
+</html>

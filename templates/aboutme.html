@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='app.css') }}">
+  </head>
+  <body class="p-8 bg-stone-200">
+    <ul class="flex text-2xl font-bold">
+        <li class="mr-6">
+          <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li class="mr-6">
+          <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('aboutme') }}">About Me</a>
+        </li>
+        <li class="mr-6">
+          <a class="text-gray-500 hover:text-blue-800" href="{{ url_for('contactus') }}">Contact Us</a>
+        </li>
+        
+      </ul>
+    <h1 class="text-3xl font-bold tracking-wide my-4">About Me</h1>
+    <hr class="my-2">
+
+    <div class="text-2xl">
+        Made by: Kavya Gupta, Pragya Sharma, Shine Chang
+        <br><br>
+      Hi! This is a class ranking website to find out who teaches what class at CHS, how hard the class is,
+      and what people have rated the class out of 5 stars. If you're unsure about what classes to take next year,
+      you can take a look here and see whether the class fits well into your schedule or not!
+    </div>
+  </body>
+</html>
